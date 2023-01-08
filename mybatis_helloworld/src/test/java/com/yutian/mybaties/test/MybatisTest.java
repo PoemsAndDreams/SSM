@@ -24,6 +24,7 @@ public class MybatisTest {
         sqlSession.commit();
         sqlSession.close();
         //Git : hot-fix测试
+        //Git : master merge hot-fix-conflict-测试02
 
 
     }
