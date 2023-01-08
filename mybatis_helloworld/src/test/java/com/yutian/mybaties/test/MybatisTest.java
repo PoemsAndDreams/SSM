@@ -23,6 +23,7 @@ public class MybatisTest {
         System.out.println("结果：" + result);
         sqlSession.commit();
         sqlSession.close();
+        //Git : hot-fix测试
 
 
     }
