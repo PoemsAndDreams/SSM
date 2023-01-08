@@ -27,6 +27,7 @@ public class MybatisTest {
         //Git : master merge hot-fix-conflict-测试02
         //Git : push-测试03
         //Git : pull-测试04
+        //Git : Gitee中测试
 
 
     }
