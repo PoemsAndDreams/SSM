@@ -1,4 +1,4 @@
-package com.yutian.mybatis.mapper.mybatis.mapper;
+package com.yutian.mybatis.mapper;
 
 public interface UserMapper {
     int insertUser();

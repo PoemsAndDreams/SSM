@@ -1,6 +1,7 @@
 package com.yutian.mybaties.test;
 
-import com.yutian.mybatis.mapper.mybatis.mapper.UserMapper;
+
+import com.yutian.mybatis.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,12 +17,13 @@ public class MybatisTest {
         InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-//        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-//        int result = mapper.insertUser();
-        int result = sqlSession.insert("com.yutian.mybatis.mapper.mybatis.mapper.UserMapper.insertUser");
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);//ctrl+p
+        //ctrl+p
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int result = mapper.insertUser();
+//        int result = sqlSession.insert("com.yutian.mybatis.mapper.mybatis.mapper.UserMapper.insertUser");
         System.out.println("结果：" + result);
-        sqlSession.commit();
+
         sqlSession.close();
         //Git : hot-fix测试
         //Git : hot-fix merge master-测试01
