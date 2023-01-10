@@ -7,4 +7,20 @@
     <insert id="insertUser">
         insert into t_user value(null,'admin','123456',21,'男','123456@qq.com')
     </insert>
+<!--    void updateUser();-->
+    <update id="updateUser">
+        update t_user set username = 'Tom' , password = '123' where id = 1
+    </update>
+<!--    void deleteUser();-->
+    <delete id="deleteUser">
+        delete from t_user where id = 2
+    </delete>
+<!--    User getUserById();-->
+    <select id="getUserById" resultType="com.yutian.mybatis.pojo.User">
+        select * from t_user where id = 1
+    </select>
+<!--    List<User> getAllUser();-->
+    <select id="getAllUser" resultType="com.yutian.mybatis.pojo.User">
+        select * from t_user
+    </select>
 </mapper>
