@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" th:href="@{/static/css/add.css}">
+</head>
+<body th:background="@{/static/css/img/bg1.jpg}">
+<div id="div_container">
+    <div id="div_arms_list">
+        <p class="center f30">编辑信息</p>
+        <form th:action="@{/arms/add}" method="post">
+            <table id="tbl_arms">
+                <tr>
+                    <th class="w20">名称:</th>
+                    <!--						<td><input type="text" name="aname" th:value="${arms.aname}"></td>-->
+                    <td><input type="text" name="aname"></td>
+                </tr>
+                <tr>
+                    <th class="w20">类型:</th>
+                    <!--						<td><input type="text" name="atype" th:value="${arms.atype}"></td>-->
+                    <td><input type="text" name="atype"></td>
+                </tr>
+                <tr>
+                    <th class="w20">星级:</th>
+                    <!--						<td><input type="text" name="astar" th:value="${arms.astar}"></td>-->
+                    <td><input type="text" name="astar"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="添加">
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

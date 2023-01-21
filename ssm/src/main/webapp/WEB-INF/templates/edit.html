@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" th:href="@{/static/css/edit.css}">
+	</head>
+	<body th:background="@{/static/css/img/bg1.jpg}">
+		<div id="div_container">
+			<div id="div_arms_list">
+				<p class="center f30">编辑信息</p>
+				<form th:action="@{/arms}" method="post" th:object="${arms}">
+					<!--hidden隐藏域-->
+					<input type="hidden" name="_method" value="put"/>
+					<input type="hidden" name="aid" th:value="*{aid}">
+					<table id="tbl_arms">
+						<tr>
+							<th class="w20">名称:</th>
+							<!--						<td><input type="text" name="aname" th:value="${arms.aname}"></td>-->
+							<td><input type="text" name="aname" th:value="*{aname}"></td>
+						</tr>
+						<tr>
+							<th class="w20">类型:</th>
+							<!--						<td><input type="text" name="atype" th:value="${arms.atype}"></td>-->
+							<td><input type="text" name="atype" th:value="*{atype}"></td>
+						</tr>
+						<tr>
+							<th class="w20">星级:</th>
+							<!--						<td><input type="text" name="astar" th:value="${arms.astar}"></td>-->
+							<td><input type="text" name="astar" th:value="*{astar}"></td>
+						</tr>
+						<tr>
+							<th colspan="2">
+								<input type="submit" value="修改">
+							</th>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

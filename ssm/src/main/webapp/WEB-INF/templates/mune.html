@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        yuanshen
+    </title>
+    <style type="text/css">
+        body{
+            margin-top: 300px;
+            margin-left: 500px;
+            background-size: auto auto;
+        }
+    </style>
+</head>
+<body>
+    <body th:background="@{static/css/img/画师CR.jpg}">
+    <form th:action="@{/arms/page/1}">
+        用户: <input type="text" name="name"/><br/>
+        密码: <input type="password" name="pwd"/><br/>
+        <br>
+        <input type="submit" value="登录"/>
+        <br><br>
+    </form>
+    <button onclick="alert('本页面由谭君勇提供,画师CR')">版本</button>
+</body>
+</html>

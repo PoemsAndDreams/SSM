@@ -13,8 +13,10 @@ public class IOCByXMLTest {
 
         ApplicationContext ioc = new ClassPathXmlApplicationContext("spring-ioc.xml");
 //        Student studentOne = (Student) ioc.getBean("studentOne");
-        Student studentOne = ioc.getBean(Student.class);
-        System.out.println(studentOne);
+//        Student studentOne = ioc.getBean(Student.class);
+//        System.out.println(studentOne);
+        Clazz clazz = ioc.getBean("clazzTwo",Clazz.class);
+        System.out.println(clazz);
 
     }
 

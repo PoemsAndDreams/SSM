@@ -86,6 +86,7 @@
 <!--                <ref bean="studentThree"></ref>-->
 <!--            </list>-->
 <!--        </property>-->
+        <property name="students" ref="studentList"></property>
 
     </bean>
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" th:href="@{/static/css/index.css}">
+		<script language="JavaScript" th:src="@{/static/js/index.js}"></script>
+	</head>
+	<body th:background="@{/static/css/img/bg1.jpg}">
+		<div id="div_container">
+			<div id="div_arms_list">
+				<p class="center f30">武器介绍</p>
+				<div class="div_g">
+					<a th:href="@{/to/add}" style="color: coral">添加</a>
+				</div>
+				<br>
+				<table id="tbl_arms">
+					<tr>
+						<th class="w20">名称</th>
+						<th class="w20">类型</th>
+						<th class="w20">星级</th>
+						<th>操作</th>
+					</tr>
+<!--					<tr th:if="${#lists.isEmpty(page.list)}">-->
+<!--						<td colspan="4">暂无记录!</td>-->
+<!--					</tr>-->
+<!--					th:unless="${#lists.isEmpty(page.list)}"-->
+					<tr th:each="arms:${page.list}">
+<!--						<td><a th:text="${arms.aname}" th:href="@{'/edit.do?aid=' + ${arms.aid}">降临之剑</a></td>-->
+						<td><a th:text="${arms.aname}" th:href="@{'/arms/' + ${arms.aid}}">降临之剑</a></td>
+						<td th:text="${arms.atype}">单手剑</td>
+						<td th:text="${arms.astar}">四星</td>
+<!--						<td><img src="img/del.jpg" class="delImg" th:onclick="'delArms(' + ${arms.aid} + ')'"/></td>-->
+<!--						<td><img th:src="@{/static/css/img/del.jpg}" class="delImg" th:onclick="|delArms(${arms.aid})|"/></td>-->
+						<td>
+							<a @click="deleteEmployee()" th:href="@{'/arms/del/'+${arms.aid}}">删除</a>
+						</td>
+					</tr>
+				</table>
+
+				<form method="post">
+					<input type="hidden" name="_method" value="delete">
+				</form>
+
+				<br><br>
+<!--				<div class="div_c">-->
+<!--					<input type="button" value="首  页" th:href="@{/arms/page/1}" th:if="${page.hasPreviousPage}">-->
+<!--					<input type="button" value="上一页" th:href="@{'/arms/page/' + ${page.prePage}}" th:if="${page.hasPreviousPage}">-->
+<!--					<span th:each="num:${page.navigatepageNums}">-->
+<!--						<a th:href="@{'/arms/page/' + ${num}}" th:text="${num}"></a>-->
+<!--					</span>-->
+<!--					<input type="button" value="下一页" th:href="@{'/arms/page/' + ${page.nextPage}}" th:if="${page.hasNextPage}">-->
+<!--					<input type="button" value="尾  页" th:href="@{'/arms/page/' + ${page.pages}}" th:if="${page.hasNextPage}">-->
+<!--				</div>-->
+				<div class="div_c">
+					<a th:href="@{/arms/page/1}" th:if="${page.hasPreviousPage}">首页</a>
+					<a th:href="@{'/arms/page/' + ${page.prePage}}" th:if="${page.hasPreviousPage}">上一页</a>
+					<span th:each="num:${page.navigatepageNums}">
+						<a th:if="${page.pageNum == num}" style="color: red" th:href="@{'/arms/page/' + ${num}}" th:text="${num}"></a>
+						<a th:if="${page.pageNum != num}" th:href="@{'/arms/page/' + ${num}}" th:text="${num}"></a>
+					</span>
+					<a th:href="@{'/arms/page/' + ${page.nextPage}}" th:if="${page.hasNextPage}">下一页</a>
+					<a th:href="@{'/arms/page/' + ${page.pages}}" th:if="${page.hasNextPage}">尾  页</a>
+				</div>
+			</div>
+		</div>
+
+
+		<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+		<script type="text/javascript">
+			var vue = new Vue({
+				el:"#app",
+				methods:{
+					deleteEmployee(){
+						//获取form表单
+						var form = document.getElementsByTagName("form")[0];
+						//将超链接的href属性值赋值给form表单的action属性
+						//event.target表示当前触发事件的标签
+						form.action = event.target.href;
+						//表单提交
+						form.submit();
+						//阻止超链接的默认行为
+						event.preventDefault();
+					}
+				}
+			});
+		</script>
+
+	</body>
+</html>
